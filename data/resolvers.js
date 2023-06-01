@@ -13,6 +13,15 @@ export const resolvers = {
                 throw err;
             });
     },
+    getAllProducts: () => {
+        return Widgets.find().exec()
+            .then((products) => {
+                return products;
+            })
+            .catch((err) => {
+                throw err;
+            });
+    },
     createProduct: ({ input }) => {
         const newWidget = new Widgets({
             name: input.name,
