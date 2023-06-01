@@ -41,6 +41,19 @@ export const resolvers = {
             .catch((err) => {
                 throw err;
             });
+    },
+    deleteProduct: ({ id }) => {
+        return Widgets.findByIdAndRemove(id).exec()
+            .then((removedProduct) => {
+                if (removedProduct) {
+                    return 'Product successfully removed.';
+                } else {
+                    return 'Product not found.';
+                }
+            })
+            .catch((err) => {
+                throw err;
+            });
     }
 
 }
